@@ -1,3 +1,6 @@
+#This script is intended to become an Rmd tutorial mirroring the [python version](https://github.com/LinkedEarth/PyRATES_practicums_R/blob/main/incomplete/Spectral_Analysis_Rio_Grande.html)
+#Last edited David Edge, 5/24/2024
+
 library(dplyr)
 library(lubridate)
 library(astrochron)
