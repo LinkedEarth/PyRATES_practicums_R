@@ -85,7 +85,7 @@ ggplot(mtm2, aes(x=Period, y=Power)) +
   theme_light()
 
 x.ts <- ts(df4[,2], start=c(1912), end = c(2024),frequency = 12)
-stl1 <- stl(xt1, s.window=12)
+stl1 <- stl(x.ts, s.window=12)
 stlOut <- as.data.frame(stl1$time.series)
 df7 <- cbind(df3[,1], stlOut$remainder[1:length(df3$Date)])
 names(df7)[2] <- "anomaly"
