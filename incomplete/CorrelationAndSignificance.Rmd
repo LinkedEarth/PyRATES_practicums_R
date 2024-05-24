@@ -1,5 +1,5 @@
 ---
-title: "Correlation and Significance (unfinished)"
+title: "Correlation and Significance (unfinished, awaiting Julien's template)"
 author: "David Edge"
 date: "2024-05-23"
 output: html_document
