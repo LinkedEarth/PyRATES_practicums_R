@@ -1,0 +1,51 @@
+---
+title: "Correlation and Significance (unfinished)"
+author: "David Edge"
+date: "2024-05-23"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(dplyr)
+library(reshape2)
+```
+
+
+```{r}
+set.seed(22)
+df1 <- data.frame("Year" = 0:100,
+                  "UFOs" = sin(seq(0,10,by=0.1)) + seq(0,5,length.out=101) + runif(101,min = -2,max = 2),
+                  "patents" = sin(seq(1,11,by=0.1)) + seq(0,5,length.out=101) + runif(101,min = -2,max = 2))
+
+cor.test(df1$UFOs, df1$patents,method = "pearson")
+cor.test(df1$UFOs, df1$patents,method = "spearman")
+cor.test(df1$UFOs, df1$patents,method = "kendall")
+
+```
+
+
+```{r}
+
+df3 <- melt(df1, id.vars = "Year")
+
+ggplot(data = df3, mapping = aes(x=Year, y=value, color=variable)) + geom_line()
+
+```
+
+Pearson
+```{r}
+astrochron::surrogateCor(df1$UFOs,df1$patents,nsim = 10000,cormethod = 1)
+```
+
+Spearman
+```{r}
+astrochron::surrogateCor(df1$UFOs,df1$patents,nsim = 10000,cormethod = 2)
+```
+
+Kendall
+```{r}
+astrochron::surrogateCor(df1$UFOs,df1$patents,nsim = 10000,cormethod = 3)
+```
+
