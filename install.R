@@ -1,3 +1,6 @@
 install.packages("dplyr")
 install.packages("ggplot2")
 install.packages("forecast")
+install.packages("lubridate")
+install.packages("astrochron")
+install.packages("LambertW")
